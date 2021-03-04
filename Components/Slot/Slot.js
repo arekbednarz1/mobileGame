@@ -1,18 +1,20 @@
 import React from 'react';
-import {TouchableOpacity, Dimensions} from 'react-native';
+import {TouchableWithoutFeedback,View, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Filled from './Filled';
 
-const SlotWrapper = styled(TouchableOpacity)
+const SlotWrapper = styled(View)
 `width: ${Dimensions.get('window').width * 0.3};
 height: ${Dimensions.get('window').width * 0.3};
 background-color: grey;
 border: 1px solid #fff;`;
 
 const Slot = ({ index, filled, handleOnPress}) => (
-    <SlotWrapper onPress={ () => !filled && handleOnPress(index)}>
-        <Filled filled={filled}/>
-    </SlotWrapper>
+    <TouchableWithoutFeedback onPress={ () => !filled && handleOnPress(index)}>
+       <SlotWrapper>
+       <Filled filled={filled}/>
+       </SlotWrapper>
+    </TouchableWithoutFeedback>
 );
 
 export default Slot;
