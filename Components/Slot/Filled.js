@@ -37,7 +37,7 @@ const Filled = ({ filled }) => {
         opacity: opacityValue,
         transform: [
             {
-                scale: scaleValue,
+                scale: scaleValue
             }
         ],
     }}
